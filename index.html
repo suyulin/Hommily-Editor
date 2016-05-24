@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8">
+    <title>Hommily</title>
+    
+    <script type="text/javascript">
+    	var editorToggleInlineStyle={};
+    	var editorSelectedBlockType ={};
+    	var uploadImage;
+    	var editorEditHandle;
+    	var editorGetCurrentContent;
+       // 拿到纯文本
+      var getPlainText; 
+      // 获得第一段文本
+      var getFirstBlockText;
+      // icon 选中状态 选中返回true;
+      var editorSelectedBlockStyle;
+      var editorCurrentInlineStyle;
+      // 获得焦点
+      var onFocus;
+
+    </script>
+    <link rel="stylesheet" type="text/css" href="/static/style.css" /> 
+</head>
+<body>
+    <div id="app">
+    </div>
+    <button id="getFirstBlockText" >
+      
+      拿第一段文本
+    </button>
+      <button id="orderedListItem" >
+      
+    orderedListItem
+    </button>
+    <script src="config.js"></script>
+    <script src="/static/bundle.js"></script> 
+    <script type="text/javascript">
+      editorEditHandle("<ul><li>122334</li></ul>");
+    //editorEditHandle("<ul><li>122334</li></ul>");
+   //onFocus();
+      // var BOLD =	document.getElementById('BOLD');
+      // BOLD.addEventListener('click',function() {
+      // 	editorToggleInlineStyle('BOLD');
+      // })
+      //  var ITALIC =	document.getElementById('ITALIC');
+      // ITALIC.addEventListener('click',function() {
+      // 	editorToggleInlineStyle('ITALIC');
+      // })
+      //     var headerTwo =	document.getElementById('headerTwo');
+      // headerTwo.addEventListener('click',function() {
+      // 	editorSelectedBlockType('header-two');
+      //   console.log(editorSelectedBlockStyle('header-two'));
+      // })
+      //     var unorderedListItem =	document.getElementById('unorderedListItem');
+      // unorderedListItem.addEventListener('click',function() {
+      // 	editorSelectedBlockType('unordered-list-item');
+      // })
+      var orderedListItem =	document.getElementById('orderedListItem');
+      orderedListItem.addEventListener('click',function() {
+      	editorSelectedBlockType('unordered-list-item');
+      })
+    	 // var LINK =	document.getElementById('LINK');
+      // LINK.addEventListener('click',function() {
+      // 	editorToggleInlineStyle('LINK');
+      // })
+      // 	 var Image =	document.getElementById('Image');
+      // Image.addEventListener('click',function() {
+
+      // 	uploadImage("image", {src:path});
+      // })
+      //  var btn =	document.getElementById('getFirstBlockText');
+      // btn.addEventListener('click',function() {
+      //      console.log(getFirstBlockText());
+      // })
+    </script>
+</body>
+</html>
+

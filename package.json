@@ -1,0 +1,51 @@
+{
+  "name": "react-hommily.com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --progress --colors --config",
+    "publish": "webpack -p --progress --colors --config webpack.production.config.js --display-modules ",
+    "server": "http-server ./ -p 3001",
+    "dev": "node server.js"
+  },
+  "author": "showers",
+  "license": "ISC",
+  "dependencies": {
+    "babel-plugin-add-module-exports": "^0.1.2",
+    "babel-plugin-transform-class-properties": "^6.6.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "draft-js": "^0.2.2",
+    "immutable": "^3.7.6",
+    "react": "^15.0.2",
+    "react-dom": "^15.0.2",
+   
+    "superagent": "^1.7.2"
+  },
+  "devDependencies": {
+    "autoprefixer-core": "^6.0.1",
+    "babel-core": "^6.5.2",
+    "babel-eslint": "^5.0.0",
+    "babel-loader": "^6.2.2",
+    "babel-preset-es2015": "^6.0.15",
+    "babel-preset-react": "^6.0.15",
+    "babel-preset-stage-0": "^6.0.15",
+    "css-loader": "^0.23.1",
+    "eslint-config-airbnb": "^6.2.0",
+    "eslint-plugin-react": "^4.2.3",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.5",
+    "i": "^0.3.4",
+    "jsx-loader": "^0.13.2",
+    "lodash": "^4.5.0",
+    "postcss-color-rebeccapurple": "^2.0.0",
+    "postcss-loader": "^0.8.2",
+    "raw-loader": "^0.5.1",
+    "react-hot-loader": "^1.3.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.12.13",
+    "webpack-dev-server": "^1.14.1"
+  }
+}

@@ -1,0 +1,18 @@
+{
+    "env": {
+        "browser": true
+    },
+    "extends": "airbnb",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
+            "jsx": true
+        }
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules":{
+     "max-len": [2, 150, 4, ignorePattern: "^(\\s*var\\s.+=\\s*require\\s*\\(|import )"]
+    }
+}
