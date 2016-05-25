@@ -81,10 +81,10 @@ const styles = {
     padding: '0 15px',
   },
   sideControl: {
-   
+    height: 317,
     //width: 48, // Needed to figure out how much to offset the sideControl left
   
-    display: 'none',
+    
   }
 }
 
@@ -175,7 +175,7 @@ export default class RichEditor extends React.Component {
 
     this.updateSelection = () => {
       var selectionRangeIsCollapsed = null,
-        sideControlVisible = false,
+        sideControlVisible = true,
         sideControlTop = null,
         sideControlLeft = styles.sideControl.left,
         popoverControlVisible = false,
@@ -183,8 +183,10 @@ export default class RichEditor extends React.Component {
         popoverControlLeft = null
       
       let selectionRange = getSelectionRange();
-      // let _v = selectionRange.getClientRects();
-      // sideControlLeft = _v.ClientRect.left;
+       
+       
+
+
       if (selectionRange){
         let rangeBounds = selectionRange.getBoundingClientRect()
         var selectedBlock = getSelectedBlockElement(selectionRange)
@@ -194,10 +196,12 @@ export default class RichEditor extends React.Component {
           sideControlVisible = true
           //sideControlTop = this.state.selectedBlock.offsetTop
           var editorBounds = this.state.editorBounds
-
+         let height = this.refs.hommilyEditor.clientHeight;
           var sideControlTop = (blockBounds.top - editorBounds.top)
             + ((blockBounds.bottom - blockBounds.top) / 2)
-            // - (styles.sideControl.height / 2)
+           if (styles.sideControl.height +sideControlTop > height ) {
+            sideControlTop = height - styles.sideControl.height;
+           }
         }
 
       }
@@ -366,7 +370,7 @@ export default class RichEditor extends React.Component {
     }
 
     return (
-      <div style={Object.assign({}, styles.editorContainer, this.props.style)} 
+      <div ref="hommilyEditor" style={Object.assign({}, styles.editorContainer, this.props.style)} 
         className="TeXEditor-editor" onClick={this._focus}>
         <SideControl style={sideControlStyles} 
           onImageClick={this.props.onImageClick
@@ -380,14 +384,6 @@ export default class RichEditor extends React.Component {
           onEditorChange={this.onEditorChange}
           EditorState ={EditorState}
           editorState={this.state.editorState}
-        />
-        <PopoverControl 
-          style={popoverStyles} 
-          toggleInlineStyle={style => this.toggleInlineStyle(style)}
-          currentInlineStyle={currentInlineStyle}
-          toggleBlockType={type => this.toggleBlockType(type)}
-          selectedBlockType={selectedBlockType}
-           editorState={this.state.editorState}
         />
         <Editor
 

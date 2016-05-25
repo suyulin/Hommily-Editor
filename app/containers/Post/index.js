@@ -43,8 +43,8 @@ class Post extends Component {
      return  editor.getCurrentContent().getPlainText();
   }
   uploadImg(file, callback){
-     request.post(config.SERVISE_PATH + '/home/process-file').withCredentials()
-        .set('Content-Type', 'application/x-www-form-urlencoded')
+     request.post(config.SERVISE_PATH + '/home/process-file')
+     .withCredentials()
     .field('action','add')
     .field('file',file)
     .end((err,res)=>{

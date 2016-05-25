@@ -1,0 +1,132 @@
+.container{
+	position: absolute;
+		background-color: #fff;
+		z-index: 999;
+		width: 45px;
+		  right: -55px;
+}
+
+.icon{
+	width: 34px;
+	height: 34px;
+    margin: 5px auto;
+  cursor:pointer;
+}
+.boldIsabled{
+  composes:icon;
+  background-image: url(./images/boldIsabled.svg);
+ 
+}
+.boldIsabled:hover{
+ background-size: 34px;
+  background-image: url(./images/boldHover.svg);
+}
+.boldDisabled{
+  background-image: url(./images/boldDisabled.svg);
+}
+.boldSelected{
+  composes:icon;
+  background-image: url(./images/boldSelected.svg);
+}
+.imgIsabled{
+  composes:icon;
+  background-image: url(./images/imgIsabled.svg);
+}
+.imgIsabled:hover{
+  background-image: url(./images/imgHover.svg);
+}
+.imgDisabled{
+  background-image: url(./images/imgIsabled.svg);
+}
+.imgSelected{
+  composes:icon;
+  background-image: url(./images/boldIsabled.svg);
+}
+.italicIsabled{
+  composes:icon;
+  background-image: url(./images/italicIsabled.svg);
+}
+.italicIsabled:hover{
+  background-image: url(./images/italicHover.svg);
+}
+.italicDisabled{
+  background-image: url(./images/italicDisabled.svg);
+}
+.italicSelected{
+  composes:icon;
+  background-image: url(./images/italicSelected.svg);
+}
+.olIsabled{
+  composes:icon;
+  background-image: url(./images/olIsabled.svg);
+}
+.olIsabled:hover{
+  background-image: url(./images/olHover.svg);
+}
+.olDisabled{
+  background-image: url(./images/olDisabled.svg);
+}
+.olSelected{
+   composes:icon;
+  background-image: url(./images/olSelected.svg);
+}
+
+.redoIsabled{
+  composes:icon;
+  background-image: url(./images/redoIsabled.svg);
+}
+.redoIsabled:hover{
+  background-image: url(./images/redoHover.svg);
+}
+.redoDisabled{
+  background-image: url(./images/redoDisabled.svg);
+}
+.redoSelected{
+  composes:icon;
+  background-image: url(./images/redoSelected.svg);
+}
+
+.titleIsabled{
+  composes:icon;
+  background-image: url(./images/titleIsabled.svg);
+}
+.titleIsabled:hover{
+  background-image: url(./images/titleHover.svg);
+}
+.titleDisabled{
+  background-image: url(./images/titleDisabled.svg);
+}
+.titleSelected{
+  composes:icon;
+  background-image: url(./images/titleSelected.svg);
+}
+
+.ulIsabled{
+  composes:icon;
+  background-image: url(./images/ulIsabled.svg);
+}
+.ulIsabled:hover{
+  background-image: url(./images/ulHover.svg);
+}
+.ulDisabled{
+  background-image: url(./images/ulDisabled.svg);
+}
+.ulSelected{
+  composes:icon;
+  background-image: url(./images/ulSelected.svg);
+}
+
+.undoIsabled{
+  composes:icon;
+  background-image: url(./images/undoIsabled.svg);
+}
+.undoIsabled:hover{
+  background-image: url(./images/undoHover.svg);
+}
+.undoDisabled{
+  background-image: url(./images/undoDisabled.svg);
+}
+.undoSelected{
+  composes:icon;
+  background-image: url(./images/undoSelected.svg);
+}
