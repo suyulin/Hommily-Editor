@@ -3,11 +3,10 @@ import {Map} from 'immutable';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import request from 'superagent'
-import {SERVISE_PATH} from '../../../../actions/config'
 import MediaComponent from './MediaComponent';
 import insertMediaBlock from '../modifiers/insertMediaBlock';
 import removeMediaBlock from '../modifiers/removeMediaBlock';
-import SideControl from './SideControl/SideControl'
+import SideControl from './SideControl';
 import PopoverControl from './PopoverControl/PopoverControl'
 import generateUniqueType from './../lib/generateUniqueType.js'
 import Image from './Image.js'
@@ -61,8 +60,10 @@ const Link = (props) => {
 const styles = {
   editorContainer: {
     position: 'relative',
-    height: '100%',
+    minHeight: 500,
     width: '100%',
+    backgroundColor:'#fff',
+   
     //paddingLeft: 48,
   },
   popOverControl: {
@@ -80,9 +81,9 @@ const styles = {
     padding: '0 15px',
   },
   sideControl: {
-    height: 24, // Required to figure out positioning
+   
     //width: 48, // Needed to figure out how much to offset the sideControl left
-    left: -48,
+  
     display: 'none',
   }
 }
@@ -173,70 +174,42 @@ export default class RichEditor extends React.Component {
     };
 
     this.updateSelection = () => {
-      // var selectionRangeIsCollapsed = null,
-      //   sideControlVisible = false,
-      //   sideControlTop = null,
-      //   sideControlLeft = styles.sideControl.left,
-      //   popoverControlVisible = false,
-      //   popoverControlTop = null,
-      //   popoverControlLeft = null
+      var selectionRangeIsCollapsed = null,
+        sideControlVisible = false,
+        sideControlTop = null,
+        sideControlLeft = styles.sideControl.left,
+        popoverControlVisible = false,
+        popoverControlTop = null,
+        popoverControlLeft = null
       
-      // let selectionRange = getSelectionRange();
-      // // let _v = selectionRange.getClientRects();
-      // // sideControlLeft = _v.ClientRect.left;
-      // if (selectionRange){
-      //   let rangeBounds = selectionRange.getBoundingClientRect()
-      //   var selectedBlock = getSelectedBlockElement(selectionRange)
-      //   if (selectedBlock){
-      //     var blockBounds = selectedBlock.getBoundingClientRect()
+      let selectionRange = getSelectionRange();
+      // let _v = selectionRange.getClientRects();
+      // sideControlLeft = _v.ClientRect.left;
+      if (selectionRange){
+        let rangeBounds = selectionRange.getBoundingClientRect()
+        var selectedBlock = getSelectedBlockElement(selectionRange)
+        if (selectedBlock){
+          var blockBounds = selectedBlock.getBoundingClientRect()
 
-      //     sideControlVisible = true
-      //     //sideControlTop = this.state.selectedBlock.offsetTop
-      //     var editorBounds = this.state.editorBounds
+          sideControlVisible = true
+          //sideControlTop = this.state.selectedBlock.offsetTop
+          var editorBounds = this.state.editorBounds
 
-      //     var sideControlTop = (blockBounds.top - editorBounds.top)
-      //       + ((blockBounds.bottom - blockBounds.top) / 2)
-      //       - (styles.sideControl.height / 2)
-      //     if (!selectionRange.collapsed){
-      //       popoverControlVisible = true
-      //       var rangeWidth = rangeBounds.right - rangeBounds.left,
-      //         rangeHeight = rangeBounds.bottom - rangeBounds.top
-      //       popoverControlTop = (rangeBounds.top - editorBounds.top)
-      //         - styles.popOverControl.height
-      //         - popoverSpacing
-      //       popoverControlLeft = 0
-      //         + (rangeBounds.left - editorBounds.left)
-      //         + (rangeWidth / 2)
-      //         - (styles.popOverControl.width / 2)
-      //     }else{
-      //       // var selection=window.getSelection();
-      //       // if(selection.collapse &&  selection.rangeCount>0 ){
-              
-      //         // var body = document.getElementsByTagName("body")[0];
-      //         //var p=selection.collapse(ReactDOM.findDOMNode(this.refs['editor']),0);
-      //         // if(p){
-      //         //   popoverControlVisible = true
-      //         //   popoverControlTop = (p.y - editorBounds.top)
-      //         //     - styles.popOverControl.height
-      //         //     - popoverSpacing
-      //         //   popoverControlLeft = 0
-      //         //     + (p.x - editorBounds.left)
-      //         //     - (styles.popOverControl.width / 2)
-      //         // }
-      //       // }
-      //     }
-      //   }
+          var sideControlTop = (blockBounds.top - editorBounds.top)
+            + ((blockBounds.bottom - blockBounds.top) / 2)
+            // - (styles.sideControl.height / 2)
+        }
 
-      // }
+      }
       
-      // this.setState({
-      //   sideControlVisible,
-      //   sideControlTop,
-      //   sideControlLeft,
-      //   popoverControlVisible,
-      //   popoverControlTop,
-      //   popoverControlLeft,
-      // });
+      this.setState({
+        sideControlVisible,
+        sideControlTop,
+        sideControlLeft,
+        popoverControlVisible,
+        popoverControlTop,
+        popoverControlLeft,
+      });
     };
     
 
@@ -274,8 +247,8 @@ export default class RichEditor extends React.Component {
 
     var files = Array.prototype.slice.call(e.target.files, 0)[0];
     //上传图片
-     this.props.uploadImg(files,(file)=>{
-      this.insertBlockComponent("image", {src:file.path});
+     this.props.uploadImg(files,(src)=>{
+      this.insertBlockComponent("image", {src:src});
      });
 
 
@@ -402,6 +375,11 @@ export default class RichEditor extends React.Component {
             || ((e) => this.refs['fileInput'].click())}
           toggleBlockType={type => this.toggleBlockType(type)}
           selectedBlockType={selectedBlockType}
+          toggleInlineStyle={style => this.toggleInlineStyle(style)}
+          currentInlineStyle={currentInlineStyle}
+          onEditorChange={this.onEditorChange}
+          EditorState ={EditorState}
+          editorState={this.state.editorState}
         />
         <PopoverControl 
           style={popoverStyles} 
@@ -409,6 +387,7 @@ export default class RichEditor extends React.Component {
           currentInlineStyle={currentInlineStyle}
           toggleBlockType={type => this.toggleBlockType(type)}
           selectedBlockType={selectedBlockType}
+           editorState={this.state.editorState}
         />
         <Editor
 

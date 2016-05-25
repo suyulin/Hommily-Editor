@@ -1,3 +1,3 @@
 var config={
-	servicePath:"https://dapi.hommily.com/v2"
+	SERVISE_PATH:"https://dapi.hommily.com/v2"
 }
