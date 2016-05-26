@@ -106,7 +106,7 @@ export default class RichEditor extends React.Component {
   constructor(props) {
     super(props);
 
-    uploadImage =  this.insertBlockComponent;
+   // uploadImage =  this.insertBlockComponent;
     const decorator = new CompositeDecorator([
       {
         strategy: findLinkEntities,
