@@ -7,7 +7,7 @@ import MediaComponent from './MediaComponent';
 import insertMediaBlock from '../modifiers/insertMediaBlock';
 import removeMediaBlock from '../modifiers/removeMediaBlock';
 import SideControl from './SideControl';
-import PopoverControl from './PopoverControl/PopoverControl'
+
 import generateUniqueType from './../lib/generateUniqueType.js'
 import Image from './Image.js'
 import MediaWrapper from './MediaWrapper.js'
@@ -65,20 +65,6 @@ const styles = {
     backgroundColor:'#fff',
    
     //paddingLeft: 48,
-  },
-  popOverControl: {
-   // Height and width are needed to compute the position
-    width: 6*24+30,
-    height: 26,
-    display: 'none', 
-    top: 0,
-    left: 0,
-    position: 'absolute',
-    zIndex: 998,
-    borderRadius: 26,
-    backgroundColor: 'rgb(255, 255, 255)',
-    boxShadow: '0px 0px 3px rgba(0,0,0,0.15)',
-    padding: '0 15px',
   },
   sideControl: {
     height: 317,
@@ -177,16 +163,8 @@ export default class RichEditor extends React.Component {
       var selectionRangeIsCollapsed = null,
         sideControlVisible = true,
         sideControlTop = null,
-        sideControlLeft = styles.sideControl.left,
-        popoverControlVisible = false,
-        popoverControlTop = null,
-        popoverControlLeft = null
-      
+        sideControlLeft = styles.sideControl.left;
       let selectionRange = getSelectionRange();
-       
-       
-
-
       if (selectionRange){
         let rangeBounds = selectionRange.getBoundingClientRect()
         var selectedBlock = getSelectedBlockElement(selectionRange)
@@ -210,9 +188,6 @@ export default class RichEditor extends React.Component {
         sideControlVisible,
         sideControlTop,
         sideControlLeft,
-        popoverControlVisible,
-        popoverControlTop,
-        popoverControlLeft,
       });
     };
     
@@ -362,12 +337,7 @@ export default class RichEditor extends React.Component {
       sideControlStyles.left = this.state.sideControlLeft
     }
 
-    var popoverStyles = Object.assign({}, styles.popOverControl)
-    if (this.state.popoverControlVisible){
-      popoverStyles.display = 'block'
-      popoverStyles.top = this.state.popoverControlTop
-      popoverStyles.left = this.state.popoverControlLeft
-    }
+
 
     return (
       <div ref="hommilyEditor" style={Object.assign({}, styles.editorContainer, this.props.style)} 
