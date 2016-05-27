@@ -160,12 +160,16 @@ export default class RichEditor extends React.Component {
     };
 
     this.updateSelection = () => {
-      var selectionRangeIsCollapsed = null,
-        sideControlVisible = true,
-        sideControlTop = null,
-        sideControlLeft = styles.sideControl.left;
+
+       var sideControlVisible = true;
+       var sideControlTop = null;
+     
       let selectionRange = getSelectionRange();
+     //console.log(selectionRange);
       if (selectionRange){
+        if (selectionRange.startContainer.nodeName != "#text") {
+          return ;
+        }
         let rangeBounds = selectionRange.getBoundingClientRect()
         var selectedBlock = getSelectedBlockElement(selectionRange)
         if (selectedBlock){
@@ -187,7 +191,7 @@ export default class RichEditor extends React.Component {
       this.setState({
         sideControlVisible,
         sideControlTop,
-        sideControlLeft,
+        
       });
     };
     
@@ -329,16 +333,12 @@ export default class RichEditor extends React.Component {
       .getCurrentContent()
       .getBlockForKey(selection.getStartKey())
       .getType();
-
     var sideControlStyles = Object.assign({}, styles.sideControl)
     if (this.state.sideControlVisible){
       sideControlStyles.display = 'block'
       sideControlStyles.top = this.state.sideControlTop
       sideControlStyles.left = this.state.sideControlLeft
     }
-
-
-
     return (
       <div ref="hommilyEditor" style={Object.assign({}, styles.editorContainer, this.props.style)} 
         className="TeXEditor-editor" onClick={this._focus}>
