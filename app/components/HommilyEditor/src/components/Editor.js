@@ -67,12 +67,11 @@ const styles = {
     //paddingLeft: 48,
   },
   sideControl: {
-    height: 317,
-    //width: 48, // Needed to figure out how much to offset the sideControl left
-  
-    
+   
   }
 }
+
+
 
 const popoverSpacing = 3 // The distance above the selection that popover 
   // will display
@@ -91,8 +90,9 @@ export default class RichEditor extends React.Component {
 
   constructor(props) {
     super(props);
-
-   // uploadImage =  this.insertBlockComponent;
+  
+   // 注册滚动事件
+    window.addEventListener('scroll', this.scrollBar);
     const decorator = new CompositeDecorator([
       {
         strategy: findLinkEntities,
@@ -134,7 +134,7 @@ export default class RichEditor extends React.Component {
       }
       return null;
     };
-
+  
     this._focus = () => {
       var editorBounds = ReactDOM.findDOMNode(this.refs['editor']).getBoundingClientRect()
       this.setState({
@@ -148,7 +148,7 @@ export default class RichEditor extends React.Component {
         editorState,
       })
 
-      // Calling this right away doesn't always seem to be reliable. It 
+      // Calling this r'ight away doesn't always seem to be reliable. It 
       // sometimes selects the first block when the user has focus on a block
       // later on in the series. Although setting the state twice is less than
       // ideal
@@ -161,38 +161,38 @@ export default class RichEditor extends React.Component {
 
     this.updateSelection = () => {
 
-       var sideControlVisible = true;
-       var sideControlTop = null;
+     //   var sideControlVisible = true;
+     //   var sideControlTop = null;
      
-      let selectionRange = getSelectionRange();
-     //console.log(selectionRange);
-      if (selectionRange){
-        if (selectionRange.startContainer.nodeName != "#text") {
-          return ;
-        }
-        let rangeBounds = selectionRange.getBoundingClientRect()
-        var selectedBlock = getSelectedBlockElement(selectionRange)
-        if (selectedBlock){
-          var blockBounds = selectedBlock.getBoundingClientRect()
+     //  let selectionRange = getSelectionRange();
+     // //console.log(selectionRange);
+     //  if (selectionRange){
+     //    if (selectionRange.startContainer.nodeName != "#text") {
+     //      return ;
+     //    }
+     //    let rangeBounds = selectionRange.getBoundingClientRect()
+     //    var selectedBlock = getSelectedBlockElement(selectionRange)
+     //    if (selectedBlock){
+     //      var blockBounds = selectedBlock.getBoundingClientRect()
 
-          sideControlVisible = true
-          //sideControlTop = this.state.selectedBlock.offsetTop
-          var editorBounds = this.state.editorBounds
-         let height = this.refs.hommilyEditor.clientHeight;
-          var sideControlTop = (blockBounds.top - editorBounds.top)
-            + ((blockBounds.bottom - blockBounds.top) / 2)
-           if (styles.sideControl.height +sideControlTop > height ) {
-            sideControlTop = height - styles.sideControl.height;
-           }
-        }
+     //      sideControlVisible = true
+     //      //sideControlTop = this.state.selectedBlock.offsetTop
+     //      var editorBounds = this.state.editorBounds
+     //     let height = this.refs.hommilyEditor.clientHeight;
+     //      var sideControlTop = (blockBounds.top - editorBounds.top)
+     //        + ((blockBounds.bottom - blockBounds.top) / 2)
+     //       if (styles.sideControl.height +sideControlTop > height ) {
+     //        sideControlTop = height - styles.sideControl.height;
+     //       }
+     //    }
 
-      }
+     //  }
       
-      this.setState({
-        sideControlVisible,
-        sideControlTop,
+     //  this.setState({
+     //    sideControlVisible,
+     //    sideControlTop,
         
-      });
+     //  });
     };
     
 
@@ -333,12 +333,7 @@ export default class RichEditor extends React.Component {
       .getCurrentContent()
       .getBlockForKey(selection.getStartKey())
       .getType();
-    var sideControlStyles = Object.assign({}, styles.sideControl)
-    if (this.state.sideControlVisible){
-      sideControlStyles.display = 'block'
-      sideControlStyles.top = this.state.sideControlTop
-      sideControlStyles.left = this.state.sideControlLeft
-    }
+    var sideControlStyles = Object.assign({}, styles.sideControl,this.state.sideControlStyles)
     return (
       <div ref="hommilyEditor" style={Object.assign({}, styles.editorContainer, this.props.style)} 
         className="TeXEditor-editor" onClick={this._focus}>
