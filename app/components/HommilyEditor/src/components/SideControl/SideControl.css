@@ -3,8 +3,8 @@
 		background-color: #fff;
 		z-index: 999;
 		width: 45px;
-	    margin-left: 615px;
-    position: fixed;
+	  right: -55px;
+    position: absolute;
 }
 
 .icon{

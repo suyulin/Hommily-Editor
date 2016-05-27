@@ -238,7 +238,41 @@ export default class RichEditor extends React.Component {
     // files.forEach(f => 
     //   this.insertBlockComponent("image", {src: URL.createObjectURL(f)}))
   };
+  scrollBar = () => {
+    const scrollTop = document.body.scrollTop;
+    const SideControl = this.refs.SideControl;
+    const container = document.getElementById('app');
+    const offsetTop = container.offsetTop;
+    let sideControlStyles ;
+    if (scrollTop - offsetTop > 0) {
+        sideControlStyles = {
+      right:'inherit',
+      marginLeft:'610px',
+      }
+      const editorHeight = ReactDOM.findDOMNode(this.refs.hommilyEditor).clientHeight;
+      const sliderHeight = ReactDOM.findDOMNode(SideControl).clientHeight;
+      if(scrollTop - offsetTop - editorHeight + sliderHeight> 0){
+        sideControlStyles.bottom= 0;
+        sideControlStyles.position='absolute';
+      }else{
+        sideControlStyles.top= 0;
+        sideControlStyles.position='fixed';
+      }
+      this.setState({
+        sideControlStyles,
+      })
+    }else{
+       sideControlStyles ={
+          position: 'absolute',
+      right:'-55px',
+      top: 0,
 
+       }
+        this.setState({
+        sideControlStyles,
+      })
+    }
+  }
   toggleBlockType = (blockType) => {
     this.onEditorChange(
       RichUtils.toggleBlockType(this.state.editorState, blockType));
@@ -339,6 +373,7 @@ export default class RichEditor extends React.Component {
         className="TeXEditor-editor" onClick={this._focus}>
         <SideControl style={sideControlStyles} 
           onImageClick={this.props.onImageClick
+
           // This editor will support a real basic example of inserting an image
           // into the page, just so something works out the box. 
             || ((e) => this.refs['fileInput'].click())}
@@ -349,6 +384,7 @@ export default class RichEditor extends React.Component {
           onEditorChange={this.onEditorChange}
           EditorState ={EditorState}
           editorState={this.state.editorState}
+           ref="SideControl"
         />
         <Editor
 
