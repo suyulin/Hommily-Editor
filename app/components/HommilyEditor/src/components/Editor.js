@@ -367,10 +367,17 @@ export default class RichEditor extends React.Component {
       .getCurrentContent()
       .getBlockForKey(selection.getStartKey())
       .getType();
-    var sideControlStyles = Object.assign({}, styles.sideControl,this.state.sideControlStyles)
+    var sideControlStyles = Object.assign({}, styles.sideControl,this.state.sideControlStyles);
+     let className = 'RichEditor-editor';
+    var contentState = editorState.getCurrentContent();
+        if (!contentState.hasText()) {
+            if (contentState.getBlockMap().first().getType() !== 'unstyled') {
+              className += ' RichEditor-hidePlaceholder';
+            }
+          }
     return (
       <div ref="hommilyEditor" style={Object.assign({}, styles.editorContainer, this.props.style)} 
-        className="TeXEditor-editor" onClick={this._focus}>
+        className="RichEditor" onClick={this._focus}>
         <SideControl style={sideControlStyles} 
           onImageClick={this.props.onImageClick
 
@@ -386,8 +393,11 @@ export default class RichEditor extends React.Component {
           editorState={this.state.editorState}
            ref="SideControl"
         />
-        <Editor
+        <div className={className}>
 
+
+        <Editor
+         
           blockRendererFn={this._blockRenderer}
           editorState={this.state.editorState}
           handleKeyCommand={this._handleKeyCommand}
@@ -396,6 +406,7 @@ export default class RichEditor extends React.Component {
           readOnly={this.state.liveTeXEdits.count()}
           ref="editor"
         />
+         </div>
         <input type="file" ref="fileInput" style={{display: 'none'}} 
           onChange={this.handleFileInput} />
       </div>

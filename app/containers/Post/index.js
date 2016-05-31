@@ -1,4 +1,4 @@
-import React, { Component , PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react';
 import { EditorState } from 'draft-js';
 import request from 'superagent';
 import Editor from '../../components/HommilyEditor/src/Editor';
@@ -14,36 +14,36 @@ class Post extends Component {
     onFocus = this.onFocus.bind(this);
     getPlainText = this.getPlainText.bind(this);
     getFirstBlockText = this.getFirstBlockText.bind(this);
-      uploadImg = this.uploadImg.bind(this);
-    
-   }
-   editHandle(content) {
+    uploadImg = this.uploadImg.bind(this);
+
+  }
+  editHandle(content) {
     const editor = this.refs.myEditor;
     const _editorState = editor.getEditorState();
 
-      const _content = stateFromHTML(content);
-      const editorState = EditorState.push(
-        _editorState,
-        _content,
-        'secondary-paste'
-      );
-      editor.onEditorChange(editorState);
-    
+    const _content = stateFromHTML(content);
+    const editorState = EditorState.push(
+      _editorState,
+      _content,
+      'secondary-paste'
+    );
+    editor.onEditorChange(editorState);
+
   }
   getFirstBlockText() {
-     const editor =this.refs.myEditor;
-     return  editor.getFirstBlockText();
+    const editor = this.refs.myEditor;
+    return editor.getFirstBlockText();
 
   }
   onFocus() {
-      const editor = this.refs.myEditor;
-      editor._focus();
+    const editor = this.refs.myEditor;
+    editor._focus();
   }
   getPlainText() {
-      let editor =this.refs.myEditor;
-     return  editor.getCurrentContent().getPlainText();
+    let editor = this.refs.myEditor;
+    return editor.getCurrentContent().getPlainText();
   }
-  uploadImg(file, callback){
+  uploadImg(file, callback) {
     //  request.post(config.SERVISE_PATH + '/home/process-file')
     //  .withCredentials()
     // .field('action','add')
@@ -56,13 +56,13 @@ class Post extends Component {
 
   }
   saveHandle() {
-    let editor =this.refs.myEditor;
+    let editor = this.refs.myEditor;
     const editorState = editor.getCurrentContent();
     const _content = stateToHTML(editorState);
     return _content;
   }
   render() {
-  	return <div className={styles.root}><Editor ref="myEditor" uploadImg={this.uploadImg} /></div>;
+    return <div className={styles.root}><Editor ref="myEditor" placeholder={editorPlaceholder} uploadImg={this.uploadImg} /></div>;
   }
 }
 export default Post;

@@ -4,6 +4,7 @@
     <meta charset="utf8">
     <title>Hommily</title>
     <script src="config.js"></script>
+
     <script type="text/javascript">
    
     	var uploadImg; // 参数 ("image", {src: "图片路径"});
@@ -15,37 +16,35 @@
       var getFirstBlockText;
       // 获得焦点
       var onFocus;
-
+      var editorPlaceholder="苏昱霖";
     </script>
     <style>
       #app{
             width: 600px;
-    margin: 300px auto;
     min-height: 500px;
-    /* padding: 300px; */
-    position: relative;
-    padding-bottom: 1000px;
       }
-      .DraftEditor-root{
-        overflow: hidden;
-        padding: 15px;
-      }
-      .DraftEditor-root img{
-        max-width: 570px;
-        display: block;
-        margin: 0 auto;
-    }
+
+
       body{
         background-color: #F7F7F7;
       }
+      .test{
+        width: 400px;
+        height: 400px;
+        background-color: red;
+      }
+
+
     </style>
     <link rel="stylesheet" type="text/css" href="/static/style.css" /> 
+    <link rel="stylesheet" href="css/RichEditor.css">
+    <link rel="stylesheet" href="css/Draft.css">
 </head>
 <body>
- 
+  <div class="test"></div> <div class="test"></div> <div class="test"></div>
     <div id="app">
     </div>
-   
+     <div class="test"></div>
     <button id="getFirstBlockText" >
       
       拿第一段文本
