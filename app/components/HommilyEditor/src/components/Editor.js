@@ -90,6 +90,7 @@ export default class RichEditor extends React.Component {
 
   constructor(props) {
     super(props);
+     uploadImg = this.insertBlockComponent;
     this.offsetTop = sideControloffsetTop || 0;
    // 注册滚动事件
     window.addEventListener('scroll', this.scrollBar);
@@ -380,10 +381,9 @@ export default class RichEditor extends React.Component {
         className="RichEditor" onClick={this._focus}>
         <SideControl style={sideControlStyles} 
           onImageClick={this.props.onImageClick
-
           // This editor will support a real basic example of inserting an image
           // into the page, just so something works out the box. 
-            || ((e) => this.refs['fileInput'].click())}
+            }
           toggleBlockType={type => this.toggleBlockType(type)}
           selectedBlockType={selectedBlockType}
           toggleInlineStyle={style => this.toggleInlineStyle(style)}
