@@ -90,7 +90,7 @@ export default class RichEditor extends React.Component {
 
   constructor(props) {
     super(props);
-  
+    this.offsetTop = sideControloffsetTop || 0;
    // 注册滚动事件
     window.addEventListener('scroll', this.scrollBar);
     const decorator = new CompositeDecorator([
@@ -244,18 +244,18 @@ export default class RichEditor extends React.Component {
     const container = document.getElementById('app');
     const offsetTop = container.offsetTop;
     let sideControlStyles ;
-    if (scrollTop - offsetTop > 0) {
+    if (scrollTop - offsetTop + this.offsetTop> 0) {
         sideControlStyles = {
       right:'inherit',
       marginLeft:'610px',
       }
       const editorHeight = ReactDOM.findDOMNode(this.refs.hommilyEditor).clientHeight;
       const sliderHeight = ReactDOM.findDOMNode(SideControl).clientHeight;
-      if(scrollTop - offsetTop - editorHeight + sliderHeight> 0){
+      if(scrollTop - offsetTop - editorHeight + sliderHeight + this.offsetTop> 0){
         sideControlStyles.bottom= 0;
         sideControlStyles.position='absolute';
       }else{
-        sideControlStyles.top= 0;
+        sideControlStyles.top= this.offsetTop;
         sideControlStyles.position='fixed';
       }
       this.setState({

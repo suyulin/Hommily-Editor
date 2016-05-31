@@ -16,7 +16,8 @@
       var getFirstBlockText;
       // 获得焦点
       var onFocus;
-      var editorPlaceholder="苏昱霖";
+      var editorPlaceholder ="";
+      var sideControloffsetTop = 66;
     </script>
     <style>
       #app{
@@ -28,12 +29,17 @@
       body{
         background-color: #F7F7F7;
       }
-      .test{
-        width: 400px;
-        height: 400px;
+      .nav{
+        width:100%;
+        height: 66px;
+        position: fixed;
         background-color: red;
       }
-
+      .test{
+           width: 500px;
+           height: 600px;
+           background-color:yellow;
+      }
 
     </style>
     <link rel="stylesheet" type="text/css" href="/static/style.css" /> 
@@ -41,9 +47,13 @@
     <link rel="stylesheet" href="css/Draft.css">
 </head>
 <body>
-  <div class="test"></div> <div class="test"></div> <div class="test"></div>
+<div class="nav"></div>
+ <div class="test"></div>
     <div id="app">
     </div>
+     <div class="test"></div>
+     <div class="test"></div>
+
      <div class="test"></div>
     <button id="getFirstBlockText" >
       
