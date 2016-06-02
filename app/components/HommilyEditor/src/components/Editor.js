@@ -247,8 +247,7 @@ export default class RichEditor extends React.Component {
     let sideControlStyles ;
     if (scrollTop - offsetTop + this.offsetTop> 0) {
         sideControlStyles = {
-      right:'inherit',
-      marginLeft:'610px',
+
       }
       const editorHeight = ReactDOM.findDOMNode(this.refs.hommilyEditor).clientHeight;
       const sliderHeight = ReactDOM.findDOMNode(SideControl).clientHeight;
@@ -265,7 +264,7 @@ export default class RichEditor extends React.Component {
     }else{
        sideControlStyles ={
           position: 'absolute',
-      right:'-55px',
+ 
       top: 0,
 
        }

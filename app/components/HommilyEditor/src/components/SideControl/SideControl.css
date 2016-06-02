@@ -3,7 +3,7 @@
 		background-color: #fff;
 		z-index: 999;
 		width: 45px;
-	  right: -55px;
+	  margin-left: -55px;
     position: absolute;
 }
 
