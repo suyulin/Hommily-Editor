@@ -27,7 +27,7 @@ class Post extends Component {
       _content,
       'secondary-paste'
     );
-    editor.onEditorChange(editorState);
+    editor.onChange(editorState);
 
   }
   getFirstBlockText() {

@@ -222,7 +222,7 @@ class MarkupGenerator {
   renderBlockContent(block: ContentBlock): string {
     let blockType = block.getType();
     switch(blockType){
-      case "image":
+      case "atomic":
       return this.renderImageBlockContent(block);
       break;
       default:

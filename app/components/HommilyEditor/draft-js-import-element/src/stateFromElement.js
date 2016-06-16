@@ -111,7 +111,7 @@ class BlockGenerator {
           new ContentBlock({
             key: genKey(),
             text: ' ',
-            type: 'image',
+            type: 'atomic',
             characterList: List(Repeat(charData, 1)),
             depth: block.depth,
           })

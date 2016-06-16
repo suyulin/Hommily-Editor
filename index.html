@@ -23,8 +23,11 @@
       #app{
             width: 600px;
     min-height: 500px;
+    margin: 0 auto;
       }
-
+   .RichEditor-editor img{
+    max-width: 570px;
+   }
 
       body{
         background-color: #F7F7F7;
@@ -51,22 +54,24 @@
  <div class="test"></div>
     <div id="app">
     </div>
-     <div class="test"></div>
-     <div class="test"></div>
-
-     <div class="test"></div>
+ 
     <button id="getFirstBlockText" >
       
       拿第一段文本
     </button>
-      <button id="orderedListItem" >
+      <button id="btnContent" >
       
-    orderedListItem
-    </button>
+      拿内容
+    </button> 
+<!--     <button id="getFirstBlockText" >
+      
+      拿第一段文本
+    </button -->>
     <script src="config.js"></script>
     <script src="/static/bundle.js"></script> 
     <script type="text/javascript">
-    uploadImg("image",{src : "https://dev.hommily.com/image/activity/201511/3ed3bcbf4c27d93ab5c717e3e6fa2bc5.png"});
+     //uploadImg("image",{src : "https://dev.hommily.com/image/activity/201511/3ed3bcbf4c27d93ab5c717e3e6fa2bc5.png"}); 
+    // uploadImg("image",{src : "https://dev.hommily.com/image/activity/201511/3ed3bcbf4c27d93ab5c717e3e6fa2bc5.png"});
     //  request.post(config.SERVISE_PATH + '/home/process-file')
     //  .withCredentials()
     // .field('action','add')
@@ -78,7 +83,7 @@
     // })
 
   //}
-    // editorEditHandle("<ul><li>122334</li></ul>");
+ // editorEditHandle('<p>嗯呢嗯嗯</p><img src="https://dev.hommily.com/image/upload/201605/23/ee6c12f0d46d70b35653a5dd42138420.png" alt="ee6c12f0d46d70b35653a5dd42138420.png" /><p><br /></p>');
     //editorEditHandle("<ul><li>122334</li></ul>");
    //onFocus();
       // var BOLD =	document.getElementById('BOLD');
@@ -112,10 +117,14 @@
 
       // 	uploadImage("image", {src:path});
       // })
-      //  var btn =	document.getElementById('getFirstBlockText');
-      // btn.addEventListener('click',function() {
-      //      console.log(getFirstBlockText());
-      // })
+          var btnContent = document.getElementById('btnContent');
+      btnContent.addEventListener('click',function() {
+           console.log(editorGetCurrentContent());
+      })
+       var btn =	document.getElementById('getFirstBlockText');
+      btn.addEventListener('click',function() {
+           //console.log(saveHandle());
+      })
     </script>
 </body>
 </html>

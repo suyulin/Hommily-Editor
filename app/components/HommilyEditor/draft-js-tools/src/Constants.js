@@ -13,7 +13,7 @@ export const BLOCK_TYPE = {
   PULLQUOTE: 'pullquote',
   CODE: 'code-block',
   MEDIA: 'media',
-  IMAGE:'image'
+  IMAGE:'atomic'
 };
 
 export const ENTITY_TYPE = {

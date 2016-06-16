@@ -6,7 +6,10 @@
 /**
  * We inherit the height of the container by default
  */
-
+figure{
+  margin:0;
+  padding: 0;
+}
 .DraftEditor-root,
 .DraftEditor-editorContainer,
 .public-DraftEditor-content {
