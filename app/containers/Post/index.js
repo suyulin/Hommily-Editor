@@ -9,12 +9,12 @@ class Post extends Component {
 
   constructor(props) {
     super(props);
-    editorGetCurrentContent = this.saveHandle.bind(this);
-    editorEditHandle = this.editHandle.bind(this);
-    onFocus = this.onFocus.bind(this);
-    getPlainText = this.getPlainText.bind(this);
-    getFirstBlockText = this.getFirstBlockText.bind(this);
-    uploadImg = this.uploadImg.bind(this);
+    this.saveHandle.bind(this);
+    this.editHandle.bind(this);
+    this.onFocus.bind(this);
+    this.getPlainText.bind(this);
+    this.getFirstBlockText.bind(this);
+    this.uploadImg.bind(this);
 
   }
   editHandle(content) {
@@ -62,7 +62,7 @@ class Post extends Component {
     return _content;
   }
   render() {
-    return <div className={styles.root}><Editor ref="myEditor" placeholder={editorPlaceholder} uploadImg={this.uploadImg} /></div>;
+    return <div className={styles.root}><Editor ref="myEditor"  uploadImg={this.uploadImg} /></div>;
   }
 }
 export default Post;

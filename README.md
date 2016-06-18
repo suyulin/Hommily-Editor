@@ -8,7 +8,7 @@ https://draftjs-examples.herokuapp.com/<br>
 基于以上构建项目<br>
 
 #示例
-访问 
+访问 http://suyulin.github.io/Hommily-Editor
 
 # 使用
     $ git clone https://github.com/SevenSharp/Hommily-Editor.git
