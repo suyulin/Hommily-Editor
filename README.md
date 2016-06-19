@@ -10,8 +10,15 @@ https://draftjs-examples.herokuapp.com/<br>
 #示例
 访问 http://suyulin.github.io/Hommily-Editor
 
-# 使用
+# 如何开始
     $ git clone https://github.com/SevenSharp/Hommily-Editor.git
     $ npm install 
     $ npm run dev 
     $ npm publish 
+#api
+    
+    getFirstBlockText 拿第一段文本
+    getPlainText 拿到纯文本
+    saveHandle 拿到编辑器html内容
+    editHandle 从html内容恢复编辑器内容
+    onFocus 得到焦点
