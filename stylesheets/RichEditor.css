@@ -21,6 +21,9 @@
 .RichEditor-editor .public-DraftEditor-content {
   margin: 0 -15px -15px;
   padding: 15px;
+      -webkit-user-modify: read-write-plaintext-only;
+user-modify: read-write-plaintext-only;
+
 }
 
 .RichEditor-editor .public-DraftEditor-content {
