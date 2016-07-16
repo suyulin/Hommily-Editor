@@ -32,8 +32,9 @@ figure{
   border-left: 0.1px solid transparent;
   position: relative;
   z-index: 1;
-          -webkit-user-modify: read-write-plaintext-only;
-user-modify: read-write-plaintext-only;
+-webkit-user-modify: read-write;
+  -moz-user-modify: read-write;
+  user-modify: read-write;
 }
 
 .public-DraftEditor-block {
