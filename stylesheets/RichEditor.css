@@ -27,8 +27,7 @@
 
 .RichEditor-editor .public-DraftEditor-content {
   min-height: 100px;
-        -webkit-user-modify: read-write-plaintext-only;
-user-modify: read-write-plaintext-only;
+
 }
 
 .RichEditor-hidePlaceholder .public-DraftEditorPlaceholder-root {
