@@ -16,6 +16,29 @@ https://draftjs-examples.herokuapp.com/<br>
     $ npm run dev 
     $ npm publish 
 # 使用
+```javascript
+import React, { Component, PropTypes } from 'react';
+import HommilyEditor from 'HommilyEditor';
+class Test extends Component {
+
+  constructor(props, context) {
+    super(props, context);
+    this.click = this.click.bind(this);
+  }
+  click(){
+  	const editor = this.refs.editor;
+  	console.log(editor.getFirstBlockText())
+  }
+  uploadImg(file,callback) {
+  	 const fileUrl = "http://tupian.enterdesk.com/2013/lxy/12/9/3/1.jpg"
+  	 callback(fileUrl)
+  }
+  render() {
+    return <div> <HommilyEditor ref="editor" uploadImg = {this.uploadImg} /> <button onClick={this.click}>点我呀</button> </div>;
+  }
+}
+export default Test;
+```
 
 
 #api
