@@ -13,11 +13,9 @@ https://draftjs-examples.herokuapp.com/
 #示例
 访问 http://suyulin.github.io/Hommily-Editor
 
-# 如何开始
-    $ git clone https://github.com/SevenSharp/Hommily-Editor.git
-    $ npm install 
-    $ npm run dev 
-    $ npm publish 
+# 安装
+    $ npm install hommilyeditor --save   
+
 # 使用
 ```javascript
 import React, { Component, PropTypes } from 'react';
