@@ -99,7 +99,7 @@ var Post = function (_Component) {
       return _react2.default.createElement(
         'div',
         { className: _Post2.default.root },
-        _react2.default.createElement(_Editor2.default, { ref: 'myEditor', uploadImg: this.uploadImg })
+        _react2.default.createElement(_Editor2.default, { ref: 'myEditor', uploadImg: this.props.uploadImg })
       );
     }
   }]);

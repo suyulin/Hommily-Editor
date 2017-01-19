@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
@@ -156,8 +158,9 @@ var RichEditor = function (_Component) {
   }, {
     key: '_insertImage',
     value: function _insertImage(file) {
+      var fileSrc = (typeof file === 'undefined' ? 'undefined' : _typeof(file)) == "object" ? URL.createObjectURL(file) : file;
       var entityKey = _draftJs.Entity.create('atomic', 'IMMUTABLE', {
-        src: URL.createObjectURL(file)
+        src: fileSrc
       });
       this.onChange(_draftJs.AtomicBlockUtils.insertAtomicBlock(this.state.editorState, entityKey, ' '));
     }
@@ -166,6 +169,11 @@ var RichEditor = function (_Component) {
     value: function _handleFileInput(e) {
       var fileList = e.target.files;
       var file = fileList[0];
+
+      if (typeof this.props.uploadImg != "undefined" && typeof this.props.uploadImg == "function") {
+        this.props.uploadImg(file, this.insertImage);
+        return;
+      }
       this.insertImage(file);
     }
   }, {

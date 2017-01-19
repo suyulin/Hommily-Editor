@@ -107,8 +107,9 @@ export default class RichEditor extends Component {
     );
   }
   _insertImage(file) {
+    const  fileSrc =  typeof file == "object" ? URL.createObjectURL(file) : file;
     const entityKey = Entity.create('atomic', 'IMMUTABLE', {
-      src: URL.createObjectURL(file),
+      src: fileSrc,
     });
     this.onChange(AtomicBlockUtils.insertAtomicBlock(
       this.state.editorState,
@@ -120,6 +121,11 @@ export default class RichEditor extends Component {
   _handleFileInput(e) {
     const fileList = e.target.files;
     const file = fileList[0];
+
+    if ( (typeof this.props.uploadImg) != "undefined" && (typeof this.props.uploadImg) == "function" ){
+      this.props.uploadImg(file,this.insertImage)
+      return 
+    }
     this.insertImage(file);
   }
   _handleUploadImage() {

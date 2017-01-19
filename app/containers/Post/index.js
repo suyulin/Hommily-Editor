@@ -52,7 +52,7 @@ class Post extends Component {
     return _content;
   }
   render() {
-    return <div className={styles.root}><Editor ref="myEditor"  uploadImg={this.uploadImg} /></div>;
+    return <div className={styles.root}><Editor ref="myEditor"  uploadImg={this.props.uploadImg} /></div>;
   }
 }
 export default Post;
