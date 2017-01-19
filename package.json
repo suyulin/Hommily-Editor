@@ -1,9 +1,11 @@
 {
-  "name": "react-hommily.com",
-  "version": "2.0.0",
+  "name": "hommilyeditor",
+  "version": "2.0.6",
   "description": "",
-  "main": "main.js",
+  "main": "src/main.js",
   "scripts": {
+    "compile": "babel -d src/ app/",
+    "prepublish": "npm run compile",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --progress --colors --config",
     "publish": "webpack -p --progress --colors --config webpack.production.config.js --display-modules ",
@@ -20,8 +22,7 @@
     "eslint": "^2.10.2",
     "immutable": "^3.7.6",
     "react": "^15.0.2",
-    "react-dom": "^15.0.2",
-    "superagent": "^1.7.2"
+    "react-dom": "^15.0.2"
   },
   "devDependencies": {
     "autoprefixer-core": "^6.0.1",

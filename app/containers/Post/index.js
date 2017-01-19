@@ -44,16 +44,6 @@ class Post extends Component {
     return editor.getCurrentContent().getPlainText();
   }
   uploadImg(file, callback) {
-    //  request.post(config.SERVISE_PATH + '/home/process-file')
-    //  .withCredentials()
-    // .field('action','add')
-    // .field('file',file)
-    // .end((err,res)=>{
-
-    //   callback && callback(res.body.result.path);
-    //   //return res.body.result;
-    // })
-
   }
   saveHandle() {
     let editor = this.refs.myEditor;

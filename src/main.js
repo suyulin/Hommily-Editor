@@ -1,3 +1,5 @@
+'use strict';
+
 // import React from 'react';
 // import { render } from 'react-dom';
 // import Post from './containers/Post';
@@ -8,4 +10,3 @@
 //   document.getElementById('app')
 // );
 module.exports = require('./containers/Post');
-

@@ -15,6 +15,9 @@ https://draftjs-examples.herokuapp.com/<br>
     $ npm install 
     $ npm run dev 
     $ npm publish 
+# 使用
+
+
 #api
     
     getFirstBlockText 拿第一段文本
