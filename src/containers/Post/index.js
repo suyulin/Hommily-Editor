@@ -12,10 +12,6 @@ var _react2 = _interopRequireDefault(_react);
 
 var _draftJs = require('draft-js');
 
-var _superagent = require('superagent');
-
-var _superagent2 = _interopRequireDefault(_superagent);
-
 var _Editor = require('../../components/HommilyEditor/src/Editor');
 
 var _Editor2 = _interopRequireDefault(_Editor);
@@ -23,10 +19,6 @@ var _Editor2 = _interopRequireDefault(_Editor);
 var _main = require('../../components/HommilyEditor/draft-js-export-html/src/main');
 
 var _main2 = require('../../components/HommilyEditor/draft-js-import-html/src/main');
-
-var _Post = require('./Post.css');
-
-var _Post2 = _interopRequireDefault(_Post);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -98,7 +90,7 @@ var Post = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: _Post2.default.root },
+        { className: 'editor-root' },
         _react2.default.createElement(_Editor2.default, { ref: 'myEditor', uploadImg: this.props.uploadImg })
       );
     }

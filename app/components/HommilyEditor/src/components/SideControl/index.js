@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import styles from './SideControl.css';
-
 export default class SideControl extends Component {
 
 	static propTypes = {
@@ -21,16 +19,13 @@ export default class SideControl extends Component {
 			this.props.toggleBlockType(blockType)
 	}
 	render(){
-		return <div className={styles.container}
-			style={this.props.style}
-		
-		>
-			<div className={styles.imgIsabled} onMouseDown={this.props.onImageClick}>
+		return (<div className="container" style={this.props.style}>
+			<div className="imgIsabled" onMouseDown={this.props.onImageClick}>
 			</div>
 			<div 
 			    className={this.props.currentInlineStyle 
 						&& this.props.currentInlineStyle.has('BOLD') 
-					 	? styles.boldSelected : styles.boldIsabled}
+					 	? "boldSelected" : "boldIsabled"}
                 onMouseDown ={
                 	(e) => {
 					e.preventDefault()
@@ -42,7 +37,7 @@ export default class SideControl extends Component {
 			<div 
               className={this.props.currentInlineStyle 
 						&& this.props.currentInlineStyle.has('ITALIC') 
-					 	? styles.italicSelected : styles.italicIsabled}
+					 	? "italicSelected" : "italicIsabled"}
                 onMouseDown ={
                 	(e) => {
 					e.preventDefault()
@@ -53,7 +48,7 @@ export default class SideControl extends Component {
 			</div>
 			<div 
                className={this.props.selectedBlockType === 'header-two'
-					 	? styles.titleSelected : styles.titleIsabled}
+					 	? "titleSelected" : "titleIsabled"}
                 onMouseDown ={
                 	(e) => {
 					e.preventDefault()
@@ -64,7 +59,7 @@ export default class SideControl extends Component {
 			</div>
 			<div 
            className={this.props.selectedBlockType === 'unordered-list-item'
-					 	? styles.ulSelected : styles.ulIsabled}
+					 	? "ulSelected" : "ulIsabled"}
                 onMouseDown ={
                 	(e) => {
 					e.preventDefault()
@@ -76,7 +71,7 @@ export default class SideControl extends Component {
 			</div>
 			<div 
                 className={this.props.selectedBlockType === 'ordered-list-item'
-					 	? styles.olSelected : styles.olIsabled}
+					 	? "olSelected" : "olIsabled"}
                 onMouseDown ={
                 	(e) => {
 					e.preventDefault()
@@ -88,18 +83,18 @@ export default class SideControl extends Component {
 			</div>
 			
 		
-			<div className={styles.undoIsabled} onMouseDown={(e)=>{
+			<div className="undoIsabled" onMouseDown={(e)=>{
 				e.preventDefault();
 				this.props.onEditorChange(this.props.EditorState.undo(this.props.editorState));
 			}}  >
 			</div>
-				<div className={styles.redoIsabled} onMouseDown={(e)=>{
+				<div className="redoIsabled" onMouseDown={(e)=>{
 				e.preventDefault();
 				this.props.onEditorChange(this.props.EditorState.redo(this.props.editorState));
 			}}>
 			</div>
 			
 			
-		</div>
+		</div>)
 	}
 }

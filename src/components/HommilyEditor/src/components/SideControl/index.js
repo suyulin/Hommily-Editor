@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
@@ -6,13 +6,9 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require('react');
+var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
-
-var _SideControl = require('./SideControl.css');
-
-var _SideControl2 = _interopRequireDefault(_SideControl);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32,69 +28,66 @@ var SideControl = function (_Component) {
 	}
 
 	_createClass(SideControl, [{
-		key: 'toggleInlineStyle',
+		key: "toggleInlineStyle",
 		value: function toggleInlineStyle(style) {
 			if (this.props.toggleInlineStyle) this.props.toggleInlineStyle(style);
 		}
 	}, {
-		key: 'toggleBlockType',
+		key: "toggleBlockType",
 		value: function toggleBlockType(blockType) {
 			if (this.props.toggleBlockType) this.props.toggleBlockType(blockType);
 		}
 	}, {
-		key: 'render',
+		key: "render",
 		value: function render() {
 			var _this2 = this;
 
 			return _react2.default.createElement(
-				'div',
-				{ className: _SideControl2.default.container,
-					style: this.props.style
-
-				},
-				_react2.default.createElement('div', { className: _SideControl2.default.imgIsabled, onMouseDown: this.props.onImageClick }),
-				_react2.default.createElement('div', {
-					className: this.props.currentInlineStyle && this.props.currentInlineStyle.has('BOLD') ? _SideControl2.default.boldSelected : _SideControl2.default.boldIsabled,
+				"div",
+				{ className: "container", style: this.props.style },
+				_react2.default.createElement("div", { className: "imgIsabled", onMouseDown: this.props.onImageClick }),
+				_react2.default.createElement("div", {
+					className: this.props.currentInlineStyle && this.props.currentInlineStyle.has('BOLD') ? "boldSelected" : "boldIsabled",
 					onMouseDown: function onMouseDown(e) {
 						e.preventDefault();
 						_this2.toggleInlineStyle('BOLD');
 					}
 				}),
-				_react2.default.createElement('div', {
-					className: this.props.currentInlineStyle && this.props.currentInlineStyle.has('ITALIC') ? _SideControl2.default.italicSelected : _SideControl2.default.italicIsabled,
+				_react2.default.createElement("div", {
+					className: this.props.currentInlineStyle && this.props.currentInlineStyle.has('ITALIC') ? "italicSelected" : "italicIsabled",
 					onMouseDown: function onMouseDown(e) {
 						e.preventDefault();
 						_this2.toggleInlineStyle('ITALIC');
 					}
 				}),
-				_react2.default.createElement('div', {
-					className: this.props.selectedBlockType === 'header-two' ? _SideControl2.default.titleSelected : _SideControl2.default.titleIsabled,
+				_react2.default.createElement("div", {
+					className: this.props.selectedBlockType === 'header-two' ? "titleSelected" : "titleIsabled",
 					onMouseDown: function onMouseDown(e) {
 						e.preventDefault();
 						_this2.toggleBlockType('header-two');
 					}
 				}),
-				_react2.default.createElement('div', {
-					className: this.props.selectedBlockType === 'unordered-list-item' ? _SideControl2.default.ulSelected : _SideControl2.default.ulIsabled,
+				_react2.default.createElement("div", {
+					className: this.props.selectedBlockType === 'unordered-list-item' ? "ulSelected" : "ulIsabled",
 					onMouseDown: function onMouseDown(e) {
 						e.preventDefault();
 						_this2.toggleBlockType('unordered-list-item');
 					}
 
 				}),
-				_react2.default.createElement('div', {
-					className: this.props.selectedBlockType === 'ordered-list-item' ? _SideControl2.default.olSelected : _SideControl2.default.olIsabled,
+				_react2.default.createElement("div", {
+					className: this.props.selectedBlockType === 'ordered-list-item' ? "olSelected" : "olIsabled",
 					onMouseDown: function onMouseDown(e) {
 						e.preventDefault();
 						_this2.toggleBlockType('ordered-list-item');
 					}
 
 				}),
-				_react2.default.createElement('div', { className: _SideControl2.default.undoIsabled, onMouseDown: function onMouseDown(e) {
+				_react2.default.createElement("div", { className: "undoIsabled", onMouseDown: function onMouseDown(e) {
 						e.preventDefault();
 						_this2.props.onEditorChange(_this2.props.EditorState.undo(_this2.props.editorState));
 					} }),
-				_react2.default.createElement('div', { className: _SideControl2.default.redoIsabled, onMouseDown: function onMouseDown(e) {
+				_react2.default.createElement("div", { className: "redoIsabled", onMouseDown: function onMouseDown(e) {
 						e.preventDefault();
 						_this2.props.onEditorChange(_this2.props.EditorState.redo(_this2.props.editorState));
 					} })

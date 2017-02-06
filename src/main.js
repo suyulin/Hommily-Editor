@@ -9,4 +9,5 @@
 // ,
 //   document.getElementById('app')
 // );
+// require('../css/RichEditor.css');
 module.exports = require('./containers/Post');

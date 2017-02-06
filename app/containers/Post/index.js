@@ -1,10 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { EditorState } from 'draft-js';
-import request from 'superagent';
 import Editor from '../../components/HommilyEditor/src/Editor';
 import { stateToHTML } from '../../components/HommilyEditor/draft-js-export-html/src/main';
 import { stateFromHTML } from '../../components/HommilyEditor/draft-js-import-html/src/main';
-import styles from './Post.css';
+
 class Post extends Component {
 
   constructor(props) {
@@ -52,7 +51,7 @@ class Post extends Component {
     return _content;
   }
   render() {
-    return <div className={styles.root}><Editor ref="myEditor"  uploadImg={this.props.uploadImg} /></div>;
+    return <div className="editor-root"><Editor ref="myEditor"  uploadImg={this.props.uploadImg} /></div>;
   }
 }
 export default Post;

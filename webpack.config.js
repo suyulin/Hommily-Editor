@@ -24,17 +24,13 @@ module.exports = {
      definePlugin,
      new ExtractTextPlugin('style.css', { allChunks: true }),
   ],
-    postcss: [
-    require('autoprefixer-core'),
-    require('postcss-color-rebeccapurple'),
-  ],
   module: {
     loaders: [{
       test: /\.js$/, // 用正则表达式匹配文件格式
       loaders: ['react-hot', 'babel'], // 加载器类型
       include: path.join(__dirname, 'app'),
     },
-     { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader') },
+     { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader') },
      { test: /\.svg$/, loader: 'url-loader?limit=10000&mimetype=image/svg+xml' },
 
     ]
