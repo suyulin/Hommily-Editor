@@ -8,13 +8,6 @@ class Post extends Component {
 
   constructor(props) {
     super(props);
-    this.saveHandle.bind(this);
-    this.editHandle.bind(this);
-    this.onFocus.bind(this);
-    this.getPlainText.bind(this);
-    this.getFirstBlockText.bind(this);
-    this.uploadImg.bind(this);
-
   }
   editHandle(content) {
     const editor = this.refs.myEditor;

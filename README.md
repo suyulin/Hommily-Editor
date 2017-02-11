@@ -48,12 +48,3 @@ class Test extends Component {
 export default Test;
 
 ```
-
-
-#api
-    
-    getFirstBlockText 拿第一段文本
-    getPlainText 拿到纯文本
-    saveHandle 拿到编辑器html内容
-    editHandle 从html内容恢复编辑器内容
-    onFocus 得到焦点

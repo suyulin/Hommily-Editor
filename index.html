@@ -38,8 +38,14 @@
 <body>
     <div id="app">
     </div>
+    <button id="btn">html</button>
+    <button id="state">state</button>
     <script src="/static/bundle.js"></script> 
     <script type="text/javascript">
+    var html = document.getElementById('btn')
+    html.onclick = function(){
+      console.log(editorGetCurrentContent());
+    }
     </script>
 </body>
 </html>
