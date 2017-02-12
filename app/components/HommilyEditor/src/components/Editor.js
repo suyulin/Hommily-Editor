@@ -156,20 +156,9 @@ export default class RichEditor extends Component {
 
     return this.state.editorState.getCurrentContent();
   }
-
-  insertBlock(type, data) {
-    var editorState = insertMediaBlock(this.state.editorState, type, data)
-    this.setState({
-      editorState,
-    })
-  };
-
-  clearState() {
-    this.setState({
-      editorState: EditorState.createEmpty(this.state.editorState.decorator)
-    })
+    componentWillUnmount() {
+       window.removeEventListener('scroll', this._scrollBar.bind(this));
   }
-
   render() {
     const editorState = this.state.editorState;
     const currentInlineStyle = editorState.getCurrentInlineStyle();
@@ -182,7 +171,7 @@ export default class RichEditor extends Component {
     let className = 'RichEditor-editor';
     return (
       <div ref="hommilyEditor" style={Object.assign({}, styles.editorContainer, this.props.style)}
-      className="RichEditor" onClick={this._focus}>
+      className="RichEditor" onClick={this.focus}>
         <SideControl style={sideControlStyles}
       onImageClick={this.props.onImageClick
       // This editor will support a real basic example of inserting an image
@@ -208,7 +197,7 @@ export default class RichEditor extends Component {
       handleKeyCommand={this.handleKeyCommand}
       onChange={this.onChange}
       placeholder="Write something..."
-      readOnly={this.state.editingImage}
+      // readOnly={this.state.editingImage}
       ref="editor"
       />
          </div>

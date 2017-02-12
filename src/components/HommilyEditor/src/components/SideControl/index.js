@@ -45,7 +45,9 @@ var SideControl = function (_Component) {
 			return _react2.default.createElement(
 				"div",
 				{ className: "container", style: this.props.style },
-				_react2.default.createElement("div", { className: "imgIsabled", onMouseDown: this.props.onImageClick }),
+				_react2.default.createElement("div", { className: "imgIsabled", onMouseDown: function onMouseDown(e) {
+						return e.preventDefault();
+					}, onClick: this.props.onImageClick }),
 				_react2.default.createElement("div", {
 					className: this.props.currentInlineStyle && this.props.currentInlineStyle.has('BOLD') ? "boldSelected" : "boldIsabled",
 					onMouseDown: function onMouseDown(e) {

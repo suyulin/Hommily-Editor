@@ -215,19 +215,9 @@ var RichEditor = function (_Component) {
       return this.state.editorState.getCurrentContent();
     }
   }, {
-    key: 'insertBlock',
-    value: function insertBlock(type, data) {
-      var editorState = insertMediaBlock(this.state.editorState, type, data);
-      this.setState({
-        editorState: editorState
-      });
-    }
-  }, {
-    key: 'clearState',
-    value: function clearState() {
-      this.setState({
-        editorState: _draftJs.EditorState.createEmpty(this.state.editorState.decorator)
-      });
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      window.removeEventListener('scroll', this._scrollBar.bind(this));
     }
   }, {
     key: 'render',
@@ -243,7 +233,7 @@ var RichEditor = function (_Component) {
       return _react2.default.createElement(
         'div',
         { ref: 'hommilyEditor', style: Object.assign({}, styles.editorContainer, this.props.style),
-          className: 'RichEditor', onClick: this._focus },
+          className: 'RichEditor', onClick: this.focus },
         _react2.default.createElement(_SideControl2.default, { style: sideControlStyles,
           onImageClick: this.props.onImageClick
           // This editor will support a real basic example of inserting an image
@@ -269,9 +259,9 @@ var RichEditor = function (_Component) {
             editorState: editorState,
             handleKeyCommand: this.handleKeyCommand,
             onChange: this.onChange,
-            placeholder: 'Write something...',
-            readOnly: this.state.editingImage,
-            ref: 'editor'
+            placeholder: 'Write something...'
+            // readOnly={this.state.editingImage}
+            , ref: 'editor'
           })
         ),
         _react2.default.createElement('input', { type: 'file', ref: 'fileInput', style: {

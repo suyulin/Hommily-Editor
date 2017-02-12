@@ -8,6 +8,7 @@ class Post extends Component {
 
   constructor(props) {
     super(props);
+
   }
   editHandle(content) {
     const editor = this.refs.myEditor;

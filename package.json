@@ -1,7 +1,7 @@
 {
   "name": "hommilyeditor",
-  "version": "3.0.6",
-  "description": "",
+  "version": "3.1.1",
+  "description": "React Rich Text Editor",
   "main": "src/main.js",
   "scripts": {
     "compile": "babel -d src/ app/",
@@ -12,8 +12,24 @@
     "server": "http-server ./ -p 3001",
     "dev": "node server.js"
   },
-  "author": "showers",
+  "author": "suyulingxm@163.com",
   "license": "ISC",
+  
+    "repository": {
+    "type": "git",
+    "url": "https://github.com/suyulin/Hommily-Editor"}
+  ,
+  "keywords": [
+    "reactjs",
+    "draftjs",
+    "showers",
+    "richtext",
+    "editor"
+  ],
+    "bugs": {
+    "url": "https://github.com/suyulin/Hommily-Editor/issues"
+  },
+  "homepage": "https://github.com/suyulin/Hommily-Editor",
   "dependencies": {
     "babel-plugin-add-module-exports": "^0.1.2",
     "draft-js": "^0.7.0",

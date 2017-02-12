@@ -34,16 +34,7 @@ var Post = function (_Component) {
   function Post(props) {
     _classCallCheck(this, Post);
 
-    var _this = _possibleConstructorReturn(this, (Post.__proto__ || Object.getPrototypeOf(Post)).call(this, props));
-
-    _this.saveHandle.bind(_this);
-    _this.editHandle.bind(_this);
-    _this.onFocus.bind(_this);
-    _this.getPlainText.bind(_this);
-    _this.getFirstBlockText.bind(_this);
-    _this.uploadImg.bind(_this);
-
-    return _this;
+    return _possibleConstructorReturn(this, (Post.__proto__ || Object.getPrototypeOf(Post)).call(this, props));
   }
 
   _createClass(Post, [{

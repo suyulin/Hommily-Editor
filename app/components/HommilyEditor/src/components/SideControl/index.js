@@ -20,7 +20,7 @@ export default class SideControl extends Component {
 	}
 	render(){
 		return (<div className="container" style={this.props.style}>
-			<div className="imgIsabled" onMouseDown={this.props.onImageClick}>
+			<div className="imgIsabled"  onMouseDown={e => e.preventDefault()} onClick={this.props.onImageClick}>
 			</div>
 			<div 
 			    className={this.props.currentInlineStyle 
