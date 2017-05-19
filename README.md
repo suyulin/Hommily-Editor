@@ -18,7 +18,8 @@
 
 # 使用
 ```javascript
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import HommilyEditor from 'HommilyEditor';
 class Test extends Component {
 
@@ -40,11 +41,19 @@ class Test extends Component {
   // file 是 inputfile对象 需要上传以后，拿到 图片的url 传给callback
   	 const fileUrl = "http://tupian.enterdesk.com/2013/lxy/12/9/3/1.jpg"
   	 callback(fileUrl)
-  }
+  }   
   render() {
-    return <div> <HommilyEditor ref="editor" uploadImg = {this.uploadImg} /><button onClick={this.click}>点我呀</button> </div>;
+    return <div> <HommilyEditor ref="editor" documentId="app" uploadImg = {this.uploadImg} />
+    <button onClick={this.click}>点我呀</button> </div>;
   }
 }
 export default Test;
+
+main.js 
+
+ReactDOM.render(
+  <RichEditorExample />,
+  document.getElementById('app')
+)
 
 ```

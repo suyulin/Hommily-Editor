@@ -121,7 +121,7 @@ var RichEditor = function (_Component) {
     value: function _scrollBar() {
       var scrollTop = document.body.scrollTop;
       var SideControlComp = this.refs.sideControl;
-      var container = document.getElementById('app');
+      var container = document.getElementById(this.props.documentId || 'app');
       var sideControloffsetTop = sideControloffsetTop || 0;
       var offsetTop = container.offsetTop;
       var sideControlStyles = void 0;

@@ -63,7 +63,7 @@ export default class RichEditor extends Component {
   _scrollBar() {
     const scrollTop = document.body.scrollTop;
     const SideControlComp = this.refs.sideControl;
-    const container = document.getElementById('app');
+    const container = document.getElementById(this.props.documentId || 'app');
     const sideControloffsetTop = sideControloffsetTop || 0;
     const offsetTop = container.offsetTop;
     let sideControlStyles;

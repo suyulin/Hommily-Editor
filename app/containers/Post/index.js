@@ -45,7 +45,7 @@ class Post extends Component {
     return _content;
   }
   render() {
-    return <div className="editor-root"><Editor ref="myEditor"  uploadImg={this.props.uploadImg} /></div>;
+    return <div className="editor-root"><Editor ref="myEditor" documentId={this.props.documentId}  uploadImg={this.props.uploadImg} /></div>;
   }
 }
 export default Post;
