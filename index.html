@@ -3,14 +3,16 @@
 <head>
     <meta charset="utf8">
     <title>Hommily</title>
-
+<meta name="viewport" content="width=device-width">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.34.4/es6-shim.min.js"></script>
     <script src="Polyfill.js"></script>
     <script type="text/javascript">
     	var uploadImg; // 参数 ("image", {src: "图片路径"});
     	var editorEditHandle; // 参数 html
     	var editorGetCurrentContent; // 返回值是 html
        // 拿到纯文本
-      var getPlainText; 
+      var getPlainText;
       // 获得第一段文本
       var getFirstBlockText;
       // 获得焦点
@@ -19,30 +21,37 @@
       var sideControloffsetTop = 66;
     </script>
     <style>
-      #app{
+
+          #app{
             width: 600px;
     min-height: 500px;
-    margin: 300px auto;
+    margin: 100px auto;
       }
    .RichEditor-editor img{
     max-width: 570px;
    }
-      body{
+@media only screen and (max-device-width: 1024px) {
+  #app{
+    width: auto;
+    margin: 50px 50px;
+  }
+}
+     body{
         background-color: #F7F7F7;
       }
+
     </style>
-    <link rel="stylesheet" type="text/css" href="/static/style.css" /> 
     <link rel="stylesheet" href="css/RichEditor.css">
-    <link rel="stylesheet" href="css/Draft.css">
+
 </head>
 <body>
     <div id="app">
     </div>
     <button id="btn">html</button>
     <button id="state">state</button>
-    <script src="/static/bundle.js"></script> 
+    <script src="/dist/bundle.js"></script>
     <script type="text/javascript">
-   
+
     </script>
 </body>
 </html>

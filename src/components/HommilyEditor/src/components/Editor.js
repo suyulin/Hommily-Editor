@@ -12,6 +12,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _reactDom = require('react-dom');
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
@@ -50,9 +54,9 @@ var RichEditor = function (_Component) {
   function RichEditor(props) {
     _classCallCheck(this, RichEditor);
 
+    //window.addEventListener('scroll', this._scrollBar.bind(this));
     var _this = _possibleConstructorReturn(this, (RichEditor.__proto__ || Object.getPrototypeOf(RichEditor)).call(this, props));
 
-    window.addEventListener('scroll', _this._scrollBar.bind(_this));
     _this.focus = function () {
       return _this.refs.editor.focus();
     };
@@ -237,7 +241,7 @@ var RichEditor = function (_Component) {
         _react2.default.createElement(_SideControl2.default, { style: sideControlStyles,
           onImageClick: this.props.onImageClick
           // This editor will support a real basic example of inserting an image
-          // into the page, just so something works out the box. 
+          // into the page, just so something works out the box.
           || function (e) {
             return _this2.refs['fileInput'].click();
           },

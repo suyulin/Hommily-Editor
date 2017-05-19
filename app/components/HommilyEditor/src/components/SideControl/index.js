@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 export default class SideControl extends Component {
 
 	static propTypes = {
-		style: React.PropTypes.object,
-		onImageClick: React.PropTypes.func,
-		toggleBlockType: React.PropTypes.func,
-		selectedBlockType: React.PropTypes.string,
-		toggleInlineStyle: React.PropTypes.func,
-		currentInlineStyle: React.PropTypes.object,
+		style: PropTypes.object,
+		onImageClick: PropTypes.func,
+		toggleBlockType: PropTypes.func,
+		selectedBlockType: PropTypes.string,
+		toggleInlineStyle: PropTypes.func,
+		currentInlineStyle: PropTypes.object,
 	};
    	toggleInlineStyle (style) {
 		if (this.props.toggleInlineStyle)
@@ -22,9 +23,9 @@ export default class SideControl extends Component {
 		return (<div className="container" style={this.props.style}>
 			<div className="imgIsabled"  onMouseDown={e => e.preventDefault()} onClick={this.props.onImageClick}>
 			</div>
-			<div 
-			    className={this.props.currentInlineStyle 
-						&& this.props.currentInlineStyle.has('BOLD') 
+			<div
+			    className={this.props.currentInlineStyle
+						&& this.props.currentInlineStyle.has('BOLD')
 					 	? "boldSelected" : "boldIsabled"}
                 onMouseDown ={
                 	(e) => {
@@ -34,9 +35,9 @@ export default class SideControl extends Component {
 			}
 						>
 			</div>
-			<div 
-              className={this.props.currentInlineStyle 
-						&& this.props.currentInlineStyle.has('ITALIC') 
+			<div
+              className={this.props.currentInlineStyle
+						&& this.props.currentInlineStyle.has('ITALIC')
 					 	? "italicSelected" : "italicIsabled"}
                 onMouseDown ={
                 	(e) => {
@@ -46,7 +47,7 @@ export default class SideControl extends Component {
 			}
 			>
 			</div>
-			<div 
+			<div
                className={this.props.selectedBlockType === 'header-two'
 					 	? "titleSelected" : "titleIsabled"}
                 onMouseDown ={
@@ -57,7 +58,7 @@ export default class SideControl extends Component {
 			}
 			>
 			</div>
-			<div 
+			<div
            className={this.props.selectedBlockType === 'unordered-list-item'
 					 	? "ulSelected" : "ulIsabled"}
                 onMouseDown ={
@@ -69,7 +70,7 @@ export default class SideControl extends Component {
 
 			>
 			</div>
-			<div 
+			<div
                 className={this.props.selectedBlockType === 'ordered-list-item'
 					 	? "olSelected" : "olIsabled"}
                 onMouseDown ={
@@ -81,8 +82,8 @@ export default class SideControl extends Component {
 
 			>
 			</div>
-			
-		
+
+
 			<div className="undoIsabled" onMouseDown={(e)=>{
 				e.preventDefault();
 				this.props.onEditorChange(this.props.EditorState.undo(this.props.editorState));
@@ -93,8 +94,8 @@ export default class SideControl extends Component {
 				this.props.onEditorChange(this.props.EditorState.redo(this.props.editorState));
 			}}>
 			</div>
-			
-			
+
+
 		</div>)
 	}
 }

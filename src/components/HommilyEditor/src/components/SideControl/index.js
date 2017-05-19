@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
@@ -6,9 +6,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28,48 +32,48 @@ var SideControl = function (_Component) {
 	}
 
 	_createClass(SideControl, [{
-		key: "toggleInlineStyle",
+		key: 'toggleInlineStyle',
 		value: function toggleInlineStyle(style) {
 			if (this.props.toggleInlineStyle) this.props.toggleInlineStyle(style);
 		}
 	}, {
-		key: "toggleBlockType",
+		key: 'toggleBlockType',
 		value: function toggleBlockType(blockType) {
 			if (this.props.toggleBlockType) this.props.toggleBlockType(blockType);
 		}
 	}, {
-		key: "render",
+		key: 'render',
 		value: function render() {
 			var _this2 = this;
 
 			return _react2.default.createElement(
-				"div",
-				{ className: "container", style: this.props.style },
-				_react2.default.createElement("div", { className: "imgIsabled", onMouseDown: function onMouseDown(e) {
+				'div',
+				{ className: 'container', style: this.props.style },
+				_react2.default.createElement('div', { className: 'imgIsabled', onMouseDown: function onMouseDown(e) {
 						return e.preventDefault();
 					}, onClick: this.props.onImageClick }),
-				_react2.default.createElement("div", {
+				_react2.default.createElement('div', {
 					className: this.props.currentInlineStyle && this.props.currentInlineStyle.has('BOLD') ? "boldSelected" : "boldIsabled",
 					onMouseDown: function onMouseDown(e) {
 						e.preventDefault();
 						_this2.toggleInlineStyle('BOLD');
 					}
 				}),
-				_react2.default.createElement("div", {
+				_react2.default.createElement('div', {
 					className: this.props.currentInlineStyle && this.props.currentInlineStyle.has('ITALIC') ? "italicSelected" : "italicIsabled",
 					onMouseDown: function onMouseDown(e) {
 						e.preventDefault();
 						_this2.toggleInlineStyle('ITALIC');
 					}
 				}),
-				_react2.default.createElement("div", {
+				_react2.default.createElement('div', {
 					className: this.props.selectedBlockType === 'header-two' ? "titleSelected" : "titleIsabled",
 					onMouseDown: function onMouseDown(e) {
 						e.preventDefault();
 						_this2.toggleBlockType('header-two');
 					}
 				}),
-				_react2.default.createElement("div", {
+				_react2.default.createElement('div', {
 					className: this.props.selectedBlockType === 'unordered-list-item' ? "ulSelected" : "ulIsabled",
 					onMouseDown: function onMouseDown(e) {
 						e.preventDefault();
@@ -77,7 +81,7 @@ var SideControl = function (_Component) {
 					}
 
 				}),
-				_react2.default.createElement("div", {
+				_react2.default.createElement('div', {
 					className: this.props.selectedBlockType === 'ordered-list-item' ? "olSelected" : "olIsabled",
 					onMouseDown: function onMouseDown(e) {
 						e.preventDefault();
@@ -85,11 +89,11 @@ var SideControl = function (_Component) {
 					}
 
 				}),
-				_react2.default.createElement("div", { className: "undoIsabled", onMouseDown: function onMouseDown(e) {
+				_react2.default.createElement('div', { className: 'undoIsabled', onMouseDown: function onMouseDown(e) {
 						e.preventDefault();
 						_this2.props.onEditorChange(_this2.props.EditorState.undo(_this2.props.editorState));
 					} }),
-				_react2.default.createElement("div", { className: "redoIsabled", onMouseDown: function onMouseDown(e) {
+				_react2.default.createElement('div', { className: 'redoIsabled', onMouseDown: function onMouseDown(e) {
 						e.preventDefault();
 						_this2.props.onEditorChange(_this2.props.EditorState.redo(_this2.props.editorState));
 					} })
@@ -101,12 +105,12 @@ var SideControl = function (_Component) {
 }(_react.Component);
 
 SideControl.propTypes = {
-	style: _react2.default.PropTypes.object,
-	onImageClick: _react2.default.PropTypes.func,
-	toggleBlockType: _react2.default.PropTypes.func,
-	selectedBlockType: _react2.default.PropTypes.string,
-	toggleInlineStyle: _react2.default.PropTypes.func,
-	currentInlineStyle: _react2.default.PropTypes.object
+	style: _propTypes2.default.object,
+	onImageClick: _propTypes2.default.func,
+	toggleBlockType: _propTypes2.default.func,
+	selectedBlockType: _propTypes2.default.string,
+	toggleInlineStyle: _propTypes2.default.func,
+	currentInlineStyle: _propTypes2.default.object
 };
 exports.default = SideControl;
 module.exports = exports['default'];

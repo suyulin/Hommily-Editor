@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import SideControl from './SideControl';
 import { Editor, EditorState, Entity, RichUtils, ContentState, CompositeDecorator, AtomicBlockUtils, convertFromRaw, convertToRaw } from 'draft-js';
@@ -124,7 +125,7 @@ export default class RichEditor extends Component {
 
     if ( (typeof this.props.uploadImg) != "undefined" && (typeof this.props.uploadImg) == "function" ){
       this.props.uploadImg(file,this.insertImage)
-      return 
+      return
     }
     this.insertImage(file);
   }
@@ -175,7 +176,7 @@ export default class RichEditor extends Component {
         <SideControl style={sideControlStyles}
       onImageClick={this.props.onImageClick
       // This editor will support a real basic example of inserting an image
-      // into the page, just so something works out the box. 
+      // into the page, just so something works out the box.
       || ((e) => this.refs['fileInput'].click())
       }
       toggleBlockType={this.toggleBlockType}

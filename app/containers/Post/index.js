@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { EditorState } from 'draft-js';
 import Editor from '../../components/HommilyEditor/src/Editor';
 import { stateToHTML } from '../../components/HommilyEditor/draft-js-export-html/src/main';

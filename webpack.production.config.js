@@ -12,7 +12,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'), // 打包好资源存放的位置
     filename: 'bundle.js', // 打包以后的文件名
-    publicPath: '/static/', // 使用url-loader 加载资源的前缀
+    publicPath: '/dist/', // 使用url-loader 加载资源的前缀
   },
   plugins: [
      new ExtractTextPlugin('style.css', { allChunks: true }),
