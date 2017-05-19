@@ -36,8 +36,7 @@ class Post extends Component {
     let editor = this.refs.myEditor;
     return editor.getCurrentContent().getPlainText();
   }
-  uploadImg(file, callback) {
-  }
+  uploadImg(file, callback) {}
   saveHandle() {
     let editor = this.refs.myEditor;
     const editorState = editor.getCurrentContent();

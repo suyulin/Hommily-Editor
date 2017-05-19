@@ -8,7 +8,7 @@ module.exports = {
     './app/main.js',
   ],
   // 打包文件存放位置
-  
+
   output: {
     path: path.join(__dirname, 'dist'), // 打包好资源存放的位置
     filename: 'bundle.js', // 打包以后的文件名
