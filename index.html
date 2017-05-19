@@ -4,11 +4,10 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width">
     <meta name="description" content="Hommily-editor : reactjs draft-js">
     <script src="javascripts/Polyfill.js"></script>
-    <link rel="stylesheet" type="text/css" href="dist/style.css" /> 
-    <link rel="stylesheet" href="stylesheets/RichEditor.css">
-    <link rel="stylesheet" href="stylesheets/Draft.css">
+    <link rel="stylesheet" href="css/RichEditor.css">
     <style type="text/css">
           #app{
             width: 600px;
@@ -18,6 +17,12 @@
    .RichEditor-editor img{
     max-width: 570px;
    }
+@media only screen and (max-device-width: 1024px) {
+  #app{
+    width: auto;
+    margin: 50px 50px;
+  }
+}
      body{
         background-color: #F7F7F7;
       }
@@ -27,14 +32,10 @@
 
   <body>
 
- 
-   
+
+
       <div id="app"></div>
 
-
-
-  
-    
 <script src="dist/bundle.js"></script>
   </body>
 </html>
