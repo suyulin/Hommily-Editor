@@ -12,6 +12,7 @@ const styles = {
     backgroundColor: '#fff',
   },
   sideControl: {
+
   }
 }
 export default class RichEditor extends Component {

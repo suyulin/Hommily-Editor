@@ -1,7 +1,8 @@
 .RichEditor-root {
   background: #fff;
 
-  font-family: 'Georgia', serif;
+   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: proxima-nova, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
 
 }
@@ -386,7 +387,7 @@ figure{
     margin: 5px auto;
   cursor:pointer;
   background-image: url(./images/boldIsabled.svg);
- 
+
 }
 .boldIsabled:hover{
  background-size: 34px;

@@ -54,9 +54,9 @@ var RichEditor = function (_Component) {
   function RichEditor(props) {
     _classCallCheck(this, RichEditor);
 
-    //window.addEventListener('scroll', this._scrollBar.bind(this));
     var _this = _possibleConstructorReturn(this, (RichEditor.__proto__ || Object.getPrototypeOf(RichEditor)).call(this, props));
 
+    window.addEventListener('scroll', _this._scrollBar.bind(_this));
     _this.focus = function () {
       return _this.refs.editor.focus();
     };
